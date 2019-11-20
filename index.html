@@ -2,18 +2,109 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>Hcode DO</title>
+    <link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
+    <nav class="amber darken-4">
+      <div class="nav-wrapper">
+        <span class="brand-logo">Hcode DO</span>
+        <ul class="right">
+          <li><a href="#" id="btn-close"><i class="material-icons">close</i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <form>
+      <h5>1° Selecione os arquivos:</h5>
+      <input type="file" name="files" id="files" multiple>
+      <h5>2° Escolha a operação:</h5>
+      <div>
+        <label>
+          <input type="radio" name="sufix" value="add|_Cap" class="operations">
+          <span>Inserir <strong>_Cap</strong> no final do nome do arquivo</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="sufix" value="add|_Mic" class="operations">
+          <span>Inserir <strong>_Mic</strong> no final do nome do arquivo</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="sufix" value="rem|_Cap" class="operations">
+          <span>Remover <strong>_Cap</strong> do final do nome do arquivo</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="sufix" value="rem|_Mic" class="operations">
+          <span>Remover <strong>_Mic</strong> do final do nome do arquivo</span>
+        </label>
+      </div>
+      <h5>3° Confira o resultado final:</h5>
+      <div class="table-scroll">
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>Nome atual</th>
+              <th>Nome final</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2" class="center-align lighten-2-text">Nenhum arquivo foi selecionado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h5>4° Execute a operação:</h5>
+      <button class="waves-effect waves-light btn amber darken-4" type="btn-exec">Executar</button>
+    </form>
+    <footer>
+      <p>1.0.0</p>
+    </footer>
+    <dialog id="confirm-dialog">
+      <p>Deseja realmente executar está operação?</p>
+      <div class="dialog-action">
+        <a class="waves-effect waves-light btn black-text grey lighten-5" id="dialog-n">Não</a>
+        <a class="waves-effect waves-light btn amber darken-4" id="dialog-y">Sim</a>
+      </div>
+    </dialog>
+    <dialog id="executing-dialog">
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <p></p>
+    </dialog>
+    <dialog id="success-dialog">
+      <p>Operação executada com sucesso!</p>
+      <div class="dialog-action-center">
+        <a class="waves-effect waves-light btn amber darken-4">Ok</a>
+      </div>
+    </dialog>
+    <dialog id="error-dialog">
+      <p></p>
+      <div class="dialog-action-center">
+        <a class="waves-effect waves-light btn amber darken-4">Ok</a>
+      </div>
+    </dialog>
+    <template id="table-row">
+      <tr>
+        <td data-name="current"></td>
+        <td data-name="new"></td>
+      </tr>
+    </template>
     <script src="./renderer.js"></script>
   </body>
 </html>

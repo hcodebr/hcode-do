@@ -1,0 +1,46 @@
+@import './../../node_modules/material-design-icons/iconfont/material-icons.css';
+@import './../../node_modules/materialize-css/sass/materialize.scss';
+
+body {
+    padding-bottom: 21px;
+}
+form {
+    padding: 2em;
+}
+nav {
+    padding: 0 1em;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    .right {
+        -webkit-app-region: no-drag;
+    }
+}
+.table-scroll {
+    max-height: calc(100vh - 517px);
+    overflow: auto;    
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+}
+dialog {
+    border: none;
+    .dialog-action {
+        display: flex;
+        justify-content: flex-end;
+        a {
+            margin-right: .5em;
+        }
+    }
+    .dialog-action-center {
+        display: flex;
+        justify-content: center;
+    }
+}
+#executing-dialog {
+    p {
+        text-align: center;
+    }
+}

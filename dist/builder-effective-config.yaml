@@ -1,0 +1,9 @@
+directories:
+  output: dist
+  buildResources: build
+appId: br.com.hcode.do
+win:
+  target: nsis
+  icon: assets/icons/icon.ico
+  publisherName: Hcode
+electronVersion: 7.1.2

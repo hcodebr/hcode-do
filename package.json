@@ -1,21 +1,16 @@
 {
-  "name": "electron-quick-start",
+  "name": "hcode-do",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Hcode Directory Operations",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "sass": "sass --watch assets/scss:assets/css"
+    "sass": "sass --watch assets/scss:assets/css",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
+  "author": "Hcode",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^7.1.2"
@@ -23,5 +18,13 @@
   "dependencies": {
     "material-design-icons": "^3.0.1",
     "materialize-css": "^1.0.0-rc.2"
+  },
+  "build": {
+    "appId": "br.com.hcode.do",
+    "win":{
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico",
+      "publisherName": "Hcode"
+    }
   }
 }

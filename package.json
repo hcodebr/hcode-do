@@ -13,7 +13,7 @@
   "author": "Hcode",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^7.1.2"
+    "electron": "^7.2.4"
   },
   "dependencies": {
     "material-design-icons": "^3.0.1",
